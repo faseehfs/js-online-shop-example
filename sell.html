@@ -18,34 +18,48 @@
             style="max-width: 600px"
         >
             <h1>Let's make your first sale!</h1>
-            <form>
+            <form id="productForm">
                 <div class="mb-3">
                     <label for="itemName" class="form-label"
                         >Name of the item being sold</label
                     >
-                    <input type="text" class="form-control" id="itemName" />
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="productName"
+                        required
+                    />
                 </div>
                 <div class="mb-3">
                     <label for="imgLink" class="form-label"
                         >Link to the image</label
                     >
-                    <input type="url" class="form-control" id="imgLink" />
+                    <input type="url" class="form-control" name="imgLink" />
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label"
                         >Description of the product</label
                     >
-                    <input type="text" class="form-control" id="description" />
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="description"
+                    />
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price (in USD)</label>
-                    <input type="number" class="form-control" id="price" />
+                    <input
+                        type="number"
+                        class="form-control"
+                        name="price"
+                        required
+                    />
                 </div>
                 <div class="mb-3 form-check">
                     <input
                         type="checkbox"
                         class="form-check-input"
-                        id="madeForKids"
+                        name="madeForKids"
                     />
                     <label class="form-check-label" for="madeForKids"
                         >Made for kids</label
@@ -63,6 +77,6 @@
             crossorigin="anonymous"
         ></script>
 
-        <script src="js/sell.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>
