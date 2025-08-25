@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shoop</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div
-      id="introDiv"
-      class="container min-vh-100 d-flex flex-column justify-content-center align-items-center"
-      style="opacity: 0; transition: all 1s ease"
-    >
-      <h1 class="text-center mt-0">Welcome to<br />Shoop!</h1>
-      <p class="text-center">Simplify your sales, amplify your success.</p>
-      <a href="sell.html" class="btn btn-primary" role="button"
-        >Start Selling 🚀</a
-      >
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shoop</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div
+            id="introDiv"
+            class="container min-vh-100 d-flex flex-column justify-content-center align-items-center"
+            style="opacity: 0; transition: all 1s ease"
+        >
+            <h1 class="text-center mt-0">Welcome to<br />Shoop!</h1>
+            <p class="text-center">
+                Simplify your sales, amplify your success.
+            </p>
+            <a href="sell.html" class="btn btn-primary" role="button"
+                >Start Selling 🚀</a
+            >
+        </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"
+        ></script>
 
-    <script>
-      window.addEventListener("load", () => {
-        const introDiv = document.getElementById("introDiv");
-        introDiv.style.opacity = 1;
-      });
-    </script>
-  </body>
+        <script>
+            window.addEventListener("load", () => {
+                const introDiv = document.getElementById("introDiv");
+                introDiv.style.opacity = 1;
+            });
+        </script>
+    </body>
 </html>
