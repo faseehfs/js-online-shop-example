@@ -21,6 +21,41 @@ function clearProducts() {
     localStorage.setItem("products", JSON.stringify([]));
 }
 
+function showProductsInItemsDiv() {
+    let itemsContainer = document.getElementById("items");
+
+    let products = getProducts().reverse();
+    products.forEach((product, index) => {
+        if (!product) {
+            return;
+        }
+
+        let productCard = document.createElement("div");
+        productCard.className = "card mb-auto";
+
+        let sold = "";
+        if (Date.now() - product["publicationTimestamp"] >= 60000) {
+            sold = '<span class="text-success"> Sold</span>';
+        }
+
+        productCard.innerHTML = `
+            <img
+                src="${product["imgLink"]}"
+                class="card-img-top"
+                alt="Cover Image"
+            />
+            <div class="card-body">
+                <h5 class="card-title">${product["name"]}</h5>
+                <p class="card-text">${product["description"]}</p>
+                <h3>${product["price"]}$${sold}</h3>
+                <button class="btn btn-success remove-btn" data-index="${index}">Remove</button>
+            </div>
+        `;
+
+        itemsContainer.appendChild(productCard);
+    });
+}
+
 // sell.html
 
 if (window.location.pathname.endsWith("sell.html")) {
@@ -48,32 +83,13 @@ if (window.location.pathname.endsWith("sell.html")) {
 // dashboard.html
 
 if (window.location.pathname.endsWith("dashboard.html")) {
-    let itemsContainer = document.getElementById("items");
+    showProductsInItemsDiv();
 
-    for (const product of getProducts().reverse()) {
-        let productCard = document.createElement("div");
-        productCard.className = "card mb-auto";
-
-        let sold = "";
-        if (Date.now() - product["publicationTimestamp"] >= 60000) {
-            sold = '<span class="text-success"> Sold</span>';
-        }
-
-        productCard.innerHTML = `
-            <img
-                src="${product["imgLink"]}"
-                class="card-img-top"
-                alt="Cover Image"
-            />
-            <div class="card-body">
-                <h5 class="card-title">${product["name"]}</h5>
-                <p class="card-text">${product["description"]}</p>
-                <h3>${product["price"]}$${sold}</h3>
-            </div>
-        `;
-
-        itemsContainer.appendChild(productCard);
-    }
+    document.querySelectorAll(".remove-btn").forEach((removeBtn) => {
+        removeBtn.addEventListener("click", () => {
+            removeBtn.parentElement.parentElement.remove();
+        });
+    });
 }
 
 // test.html
