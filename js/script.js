@@ -1,15 +1,12 @@
-function addProduct(name, imgLink, description, price, madeForKids) {
-    const product = {
-        name,
-        imgLink,
-        description,
-        price,
-        madeForKids,
-        publicationTimestamp: Date.now(),
-    };
-
+function addProduct(product) {
     const products = JSON.parse(localStorage.getItem("products")) || [];
     products.push(product);
+    localStorage.setItem("products", JSON.stringify(products));
+}
+
+function delProduct(index) {
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+    products[index] = null;
     localStorage.setItem("products", JSON.stringify(products));
 }
 
@@ -24,9 +21,8 @@ function clearProducts() {
 function showProductsInItemsDiv() {
     let itemsContainer = document.getElementById("items");
 
-    let products = getProducts().reverse();
-    products.forEach((product, index) => {
-        if (!product) {
+    getProducts().forEach((product, index) => {
+        if (product === null) {
             return;
         }
 
@@ -52,7 +48,7 @@ function showProductsInItemsDiv() {
             </div>
         `;
 
-        itemsContainer.appendChild(productCard);
+        itemsContainer.prepend(productCard);
     });
 }
 
@@ -66,16 +62,17 @@ if (window.location.pathname.endsWith("sell.html")) {
 
         const formData = new FormData(productForm);
 
-        addProduct(
-            formData.get("productName"),
-            formData.get("imgLink"),
-            formData.get("description"),
-            formData.get("price"),
-            formData.get("madeForKids") === "on"
-        );
+        product = {
+            name: formData.get("productName"),
+            imgLink: formData.get("imgLink"),
+            description: formData.get("description"),
+            price: formData.get("price"),
+            madeForKids: formData.get("madeForKids") === "on",
+            publicationTimestamp: Date.now(),
+        };
+        addProduct(product);
 
         productForm.reset();
-
         window.location.href = "dashboard.html";
     });
 }
@@ -87,6 +84,7 @@ if (window.location.pathname.endsWith("dashboard.html")) {
 
     document.querySelectorAll(".remove-btn").forEach((removeBtn) => {
         removeBtn.addEventListener("click", () => {
+            delProduct(removeBtn.dataset.index);
             removeBtn.parentElement.parentElement.remove();
         });
     });
