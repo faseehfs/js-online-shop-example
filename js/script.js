@@ -47,21 +47,6 @@ if (window.location.pathname.endsWith("sell.html")) {
 
 // dashboard.html
 
-// <div class="card mb-auto">
-//     <img
-//         src="https://cdn.pixabay.com/photo/2025/08/08/11/48/kanha-tiger-reserve-9762568_960_720.jpg"
-//         class="card-img-top"
-//         alt="Cover Image"
-//     />
-//     <div class="card-body">
-//         <h5 class="card-title">Card title</h5>
-//         <p class="card-text">
-//             Some quick example text to build on the card title
-//             and make up the bulk of the card’s content.
-//         </p>
-//     </div>
-// </div>
-
 if (window.location.pathname.endsWith("dashboard.html")) {
     let itemsContainer = document.getElementById("items");
 
