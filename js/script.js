@@ -55,7 +55,7 @@ if (window.location.pathname.endsWith("dashboard.html")) {
         productCard.className = "card mb-auto";
 
         let sold = "";
-        if (Date.now() - product["publicationTimestamp"] >= 10000) {
+        if (Date.now() - product["publicationTimestamp"] >= 60000) {
             sold = '<span class="text-success"> Sold</span>';
         }
 
