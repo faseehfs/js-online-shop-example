@@ -21,10 +21,15 @@ function clearProducts() {
 function showProductsInItemsDiv() {
     let itemsContainer = document.getElementById("items");
 
+    let noOfItemsPlaced = 0;
+    let noOfItemsSold = 0;
+
     getProducts().forEach((product, index) => {
         if (product === null) {
             return;
         }
+
+        noOfItemsPlaced += 1;
 
         let productCard = document.createElement("div");
         productCard.className = "card mb-auto";
@@ -32,6 +37,7 @@ function showProductsInItemsDiv() {
         let sold = "";
         if (Date.now() - product["publicationTimestamp"] >= 60000) {
             sold = '<span class="text-success"> Sold</span>';
+            noOfItemsSold += 1;
         }
 
         productCard.innerHTML = `
@@ -49,6 +55,11 @@ function showProductsInItemsDiv() {
         `;
 
         itemsContainer.prepend(productCard);
+
+        document.getElementById("itemsPlaced").textContent = noOfItemsPlaced;
+        document.getElementById("itemsSold").textContent = noOfItemsSold;
+        document.getElementById("itemsUnsold").textContent =
+            noOfItemsPlaced - noOfItemsSold;
     });
 }
 
