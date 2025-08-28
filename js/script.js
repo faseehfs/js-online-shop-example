@@ -86,6 +86,12 @@ if (window.location.pathname.endsWith("sell.html")) {
         productForm.reset();
         window.location.href = "dashboard.html";
     });
+
+    document
+        .getElementById("discardProductBtn")
+        .addEventListener("click", (event) => {
+            window.location.href = "dashboard.html";
+        });
 }
 
 // dashboard.html
